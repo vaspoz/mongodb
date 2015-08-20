@@ -2,8 +2,6 @@ package ru.home.edu.mongodb;
 
 
 import com.mongodb.*;
-import org.bson.Document;
-import org.bson.conversions.Bson;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -20,12 +18,8 @@ public class App {
             }
         }
 
-        Bson sort = new Document("i", -1);
 
-        DBCursor cur = coll.find()
-                .sort(new BasicDBObject("i", -1))
-//                .sort(new BasicDBObject("j", -1)
-        ;
+        DBCursor cur = coll.find().sort(new BasicDBObject("i", -1));
         show(cur);
 
     }
