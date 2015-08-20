@@ -24,7 +24,8 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.0.2.v20130417" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.0.2.v20130417" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.19" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.13.0-rc0" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:bson:3.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:bson:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.0.2" level="project" />
   </component>
 </module>
