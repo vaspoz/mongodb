@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Blog/Blog.iml" filepath="$PROJECT_DIR$/Blog/Blog.iml" />
       <module fileurl="file://$PROJECT_DIR$/mongodb.iml" filepath="$PROJECT_DIR$/mongodb.iml" />
     </modules>
   </component>
