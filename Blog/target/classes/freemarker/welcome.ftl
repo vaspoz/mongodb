@@ -13,7 +13,7 @@
     <ul>
     <li><a href="/">Goto Blog Home</a></li>
     <li><a href="/logout">Logout</a></li>
-    <li>Create a New Post (not implemented yet)</li>
+    <li><a href="/newpost">Create a New Post</a></li>
 </ul>
 </p>
 </body>
