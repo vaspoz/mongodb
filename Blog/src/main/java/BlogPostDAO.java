@@ -3,12 +3,14 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Sorts;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.in;
 import static com.mongodb.client.model.Sorts.descending;
 
 /**
@@ -40,6 +42,18 @@ public class BlogPostDAO {
         return posts;
     }
 
+    public List<Document> findByTagDateDescending(final String tag) {
+        Bson filter = in("tags", tag);
+
+        List<Document> posts = postsCollection
+                .find(filter)
+                .sort(new Document("date", -1))
+                .limit(10)
+                .into(new ArrayList<Document>());
+
+        return posts;
+    }
+
     public String addPost(String title, String body, List tags, String username) {
 
         System.out.println("Inserting blog entry " + title + " " + body);
@@ -66,13 +80,6 @@ public class BlogPostDAO {
                                final String body,
                                final String permalink) {
 
-        // XXX HW 3.3, Work Here
-        // Hints:
-        // - email is optional and may come in NULL. Check for that.
-        // - best solution uses an update command to the database and a suitable
-        //   operator to append the comment on to any existing list of comments
-
-        Document editedPost = findByPermalink(permalink);
         Document comment = new Document()
                 .append("author", name)
                 .append("body", body);

@@ -1,7 +1,7 @@
-<!doctype html>
+<!doctype HTML>
 <html>
 <head>
-    <title>Crete a new post</title>
+    <title>Create a new post</title>
 </head>
 <body>
 <#if username??>
@@ -9,23 +9,22 @@
 
     <p>
 </#if>
-<form action="/newpost" method="post">
+<form action="/newpost" method="POST">
     ${errors!""}
     <h2>Title</h2>
     <input type="text" name="subject" size="120" value="${subject!""}"><br>
 
-    <h2>Blog Entry</h2>
+    <h2>Blog Entry
+        <h2>
+            <textarea name="body" cols="120" rows="20">${body!""}</textarea><br>
 
-    <textarea name="body" cols="120" rows="120">${body!""}</textarea><br>
+            <h2>Tags</h2>
+            Comma separated, please<br>
+            <input type="text" name="tags" size="120" value="${tags!""}"><br>
 
-    <h2>Tags</h2>
-    Comma separated, please<br>
-    <input type="text" name="tags" size="120" value="${tags!""}"><br>
+            <p>
+                <input type="submit" value="Submit">
 
-    <p>
-
-    <input type="submit" value="SubmiT!">
-
-</form>
 </body>
 </html>
+

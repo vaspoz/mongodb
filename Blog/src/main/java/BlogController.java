@@ -356,6 +356,29 @@ public class BlogController {
                 template.process(root, writer);
             }
         });
+
+        get(new FreemarkerBasedRoute("/tag/:thetag", "blog_template.ftl") {
+            @Override
+            protected void doHandle(Request request, Response response, Writer writer) throws IOException, TemplateException {
+
+                String username = sessionDAO
+                        .findUsernameBySessionId(getSessionCookie(request));
+                SimpleHash root = new SimpleHash();
+
+                String tag = StringEscapeUtils.escapeHtml4(
+                        request.params(":thetag")
+                );
+                List<Document> posts = blogPostDAO.findByTagDateDescending(tag);
+
+                root.put("myposts", posts);
+
+                if (username != null) {
+                    root.put("username", username);
+                }
+
+                template.process(root, writer);
+            }
+        });
     }
 
     public boolean validateSignup(String username, String password, String verify, String email,

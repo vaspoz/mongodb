@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-<html>
+<!doctype HTML>
+<html
 <head>
-    <title>Blog Post</title>
+    <title>
+        Blog Post
+    </title>
 </head>
 <body>
 <#if username??>
     Welcome ${username} <a href="/logout">Logout</a> | <a href="/newpost">New Post</a>
+
+    <p>
 </#if>
 
 <a href="/">Blog Home</a><br><br>
 
 <h2>${post["title"]}</h2>
-Posted ${post["date"]?datetime}><i> By ${post["author"]}</i><br>
+Posted ${post["date"]?datetime}<i> By ${post["author"]}</i><br>
 <hr>
 ${post["body"]}
 <p>
     <em>Filed Under</em>:
     <#if post["tags"]??>
         <#list post["tags"] as tag>
-            ${tag}
+            <a href="/tag/${tag}">${tag}</a>
         </#list>
     </#if>
-</p>
 <p>
     Comments:
 <ul>
@@ -32,8 +35,6 @@ ${post["body"]}
     </#if>
     <#if (numComments > 0)>
         <#list 0 .. (numComments -1) as i>
-
-            Author: ${post["comments"][i]["author"]}<br>
             <br>
             ${post["comments"][i]["body"]}<br>
             <hr>
@@ -42,7 +43,7 @@ ${post["body"]}
     <h3>Add a comment</h3>
 
     <form action="/newcomment" method="POST">
-        <input type="hidden" name="permalink" , value="${post["permalink"]}">
+        <input type="hidden" name="permalink", value="${post["permalink"]}">
         ${errors!""}<br>
         <b>Name</b> (required)<br>
         <input type="text" name="commentName" size="60" value="${comment["name"]}"><br>
@@ -53,6 +54,7 @@ ${post["body"]}
         <input type="submit" value="Submit">
     </form>
 </ul>
-</p>
 </body>
 </html>
+
+

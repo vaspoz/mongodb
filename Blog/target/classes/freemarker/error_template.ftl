@@ -1,11 +1,12 @@
+<!doctype HTML>
 <html>
 <head>
-    <title>Internal error</title>
+<title>Internal Error</title>
 </head>
-
 <body>
 
 Oops..<br>
 ${error}
 </body>
 </html>
+
