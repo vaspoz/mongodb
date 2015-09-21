@@ -25,6 +25,9 @@
         <module name="Blog" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="Blog" target="1.6" />
+      <module name="mongodb" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
